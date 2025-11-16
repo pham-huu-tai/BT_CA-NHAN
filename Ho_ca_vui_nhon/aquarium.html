@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aquarium Animation</title>
+    <link rel="stylesheet" href="MyStyle.css" />
+</head>
+<body>
+    <div class="aquarium">
+        <ul class="element-list">
+            <li>Diver 1</li>
+            <li>Diver 2</li>
+            <li>Diver 3</li>
+            <li>Faint School</li>
+            <li>Gold Fish School</li>
+            <li>Shark</li>
+            <li>Turtle</li>
+        </ul>
+        <button id="animationButton">Stop Animation</button>
+        <div class="diver1"><img src="diver1.png" alt="Diver 1"></div>
+        <div class="diver2"><img src="diver2.png" alt="Diver 2"></div>
+        <div class="diver3"><img src="diver3.png" alt="Diver 3"></div>
+        <div class="faintSchool"><img src="faintSchool.png" alt="Faint School"></div>
+        <div class="goldFishSchool"><img src="goldFishSchool.png" alt="Gold Fish School"></div>
+        <div class="shark"><img src="shark.png" alt="Shark"></div>
+        <div class="turtle"><img src="turtle.png" alt="Turtle"></div>
+    </div>
+    <script>
+        const button = document.getElementById('animationButton');
+        const animatedElements = document.querySelectorAll(
+            '.diver1, .diver2, .diver3, .faintSchool, .goldFishSchool, .shark, .turtle'
+        );
+        let isPaused = false;
+        button.addEventListener('click', () => {
+            isPaused = !isPaused;
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+            button.textContent = isPaused ? "Start Animation" : "Stop Animation";
+        });
+    </script>
+</body>
+</html>
